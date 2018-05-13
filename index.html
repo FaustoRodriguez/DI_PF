@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Proyecto Final DI</title>
+        <script>
+          UPLOADCARE_LOCALE = "es";
+          UPLOADCARE_TABS = "file url facebook gdrive gphotos dropbox instagram evernote flickr skydrive";
+          UPLOADCARE_PUBLIC_KEY = "026ec62e59b93d97a505";
+        </script>
+        <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.3.0/uploadcare.full.min.js"></script>
+        <script src="node_modules/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    </head>
+    <body>
+        <div id="vue-app"><h1>
+            <p class="text-center">
+              To-Do List
+              <img src="img/logo.png" width="65" height="65" alt="Responsive image"></img>
+            </p></h1>
+            <p class="text-right">
+            <label>Nueva tarea: </label>
+            <input placeholder="Agregar tarea" v-model="newTask">
+            <button type="button" class="btn btn-info" v-on:click="addTask(newTask)">Agregar</button>
+          </p>
+            <ul>
+                <li v-for="task in tasks">
+                    <input type="hidden" role="uploadcare-uploader" name="tarea"
+                       data-crop="disabled"
+                       data-preview-step="true"
+                       data-images-only="true" /> {{task}} <button type="button" class="btn btn-success" v-on:click="removeTask(task)">Tarea Finalizada</button>
+                       <hr></hr>
+                </li>
+            </ul>
+        </div>
+        <script src="js/app.js"></script>
+
+    </body>
+</html>
