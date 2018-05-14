@@ -1,28 +1,27 @@
-const giphy = {
-  baseURL: "https://api.giphy.com/v1/gifs/",
-  key: "dc6zaTOxFJmzC",
-  tag: "hacker",
-  type: "random",
-  rating: "pg-13"
-};
+  const giphy = {
+		baseURL: "https://api.giphy.com/v1/gifs/",
+		key: "dc6zaTOxFJmzC",
+		tag: "fail",
+		type: "random",
+		rating: "pg-13"
+	};
 
-let giphyURL = encodeURI(
-  giphy.baseURL +
-    giphy.type +
-    "?api_key=" +
-    giphy.key +
-    "&tag=" +
-    giphy.tag +
-    "&rating=" +
-    giphy.rating
-);
+	let giphyURL = encodeURI(
+		giphy.baseURL +
+			giphy.type +
+			"?api_key=" +
+			giphy.key +
+			"&tag=" +
+			giphy.tag +
+			"&rating=" +
+			giphy.rating
+	);
 
-var newGif = () => $.getJSON(giphyURL, json => renderGif(json.data));
+	var newGif = () => $.getJSON(giphyURL, json => renderGif(json.data));
 
-var renderGif = _giphy => {
-  window.open(_giphy.image_original_url);
-  console.log(_giphy.image_original_url);
-};
+	var renderGif = _giphy => {
+		$(".gif").attr("src",_giphy.image_original_url);
+	};
 
 new Vue ({
     el: '#vue-app',

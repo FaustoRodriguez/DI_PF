@@ -12,8 +12,22 @@
         <script src="node_modules/vue/dist/vue.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyBWgCuawGLLt-He09zfPjx45o1ZfGUVfgg",
+            authDomain: "to-do-list-di.firebaseapp.com",
+            databaseURL: "https://to-do-list-di.firebaseio.com",
+            projectId: "to-do-list-di",
+            storageBucket: "to-do-list-di.appspot.com",
+            messagingSenderId: "447217987593"
+          };
+          firebase.initializeApp(config);
+        </script>
     </head>
     <body>
+      <div class="container-fluid">
         <div id="vue-app"><h1>
             <p class="text-center">
               To-Do List
@@ -28,12 +42,14 @@
                 <li v-for="task in tasks">
                   {{task}} <input type="hidden" role="uploadcare-uploader" name="tarea"
                          data-crop="disabled"
-                         data-images-only="true" /> <button type="button" class="btn btn-success btn-sm" v-on:click="removeTask(task)">Tarea Finalizada</button>
+                         data-images-only="true"/> <button type="button" class="btn btn-success btn-sm" onclick="newGif();" v-on:click="removeTask(task)">Tarea Finalizada</button>
                        <hr></hr>
                 </li>
             </ul>
         </div>
-        <script src="js/app.js"></script>
-        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content=<img src="img/logo.png"/>Click to toggle popover</button>
+        <p class="text-center">
+        <img class="gif" src="null"/>
+      </div>
+      <script src="js/app.js"></script>
     </body>
 </html>
