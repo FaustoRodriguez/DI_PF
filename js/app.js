@@ -34,7 +34,7 @@ new Vue ({
     el: '#vue-app',
     data:{
         newTask:'',
-        tasks:['Comer','No llorar','Programar']
+        tasks:['Comer','Lavar los trastes','Comprar tinta']
 
     },
 
