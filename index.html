@@ -26,10 +26,10 @@
           </p>
             <ul>
                 <li v-for="task in tasks">
-                    <input type="hidden" role="uploadcare-uploader" name="tarea"
-                       data-crop="disabled"
-                       data-preview-step="true"
-                       data-images-only="true" /> {{task}} <button type="button" class="btn btn-success" v-on:click="removeTask(task)">Tarea Finalizada</button>
+                  {{task}} <input type="hidden" role="uploadcare-uploader" name="tarea"
+                         data-crop="disabled"
+                         data-preview-step="true"
+                         data-images-only="true" /> <button type="button" class="btn btn-success btn-sm" v-on:click="removeTask(task)">Tarea Finalizada</button>
                        <hr></hr>
                 </li>
             </ul>
